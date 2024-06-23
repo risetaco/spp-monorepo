@@ -1,7 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import { type Footer } from "../types";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import { type Footer } from "@/types";
 import LanguagePicker from "./language-picker.astro";
+
+import qr from "@/assets/qr-download.png";
 
 interface Props {
   footer: Footer;
@@ -11,6 +13,7 @@ const { footer } = Astro.props;
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <footer class="border-t border-gray-200 py-4">
@@ -41,7 +44,7 @@ const t = useTranslations(lang);
               ))
             }
           </div>
-          <img src="/footer/shopee-link.png" alt="qr code" class="w-40" />
+          <img src={qr.src} alt="qr code" class="w-40" />
         </div>
       </div>
       <div>
@@ -75,9 +78,24 @@ const t = useTranslations(lang);
     <div class="container mx-auto border-t text-center text-gray-500 text-sm p-8">
       <p>{footer.copyright.title}</p>
       <div>
-        <a href={footer.copyright.privacyLink.url} target="_blank" rel="noreferrer"> {t("footer.privacy")} </a>
+        <a
+          href={footer.copyright.privacyLink.url.startsWith("/")
+            ? translatePath(footer.copyright.privacyLink.url)
+            : footer.copyright.privacyLink.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {t("footer.privacy")}
+        </a>
         |
-        <a href={footer.copyright.termsLink.url} target="_blank" rel="noreferrer">{t("footer.terms")} </a>
+        <a
+          href={footer.copyright.termsLink.url.startsWith("/")
+            ? translatePath(footer.copyright.termsLink.url)
+            : footer.copyright.termsLink.url}
+          target="_blank"
+          rel="noreferrer"
+          >{t("footer.terms")}
+        </a>
       </div>
     </div>
   </div>

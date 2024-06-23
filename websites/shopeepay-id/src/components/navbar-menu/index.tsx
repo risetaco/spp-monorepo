@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { cn } from "../../utils";
-import type { Menu } from "../../types";
+import { cn } from "@/utils";
+import type { Menu } from "@/types";
 
 import { useTransition } from "./hooks/useTransition";
 

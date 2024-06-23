@@ -1,4 +1,4 @@
-import { type AppLink } from "../types";
+import { type AppLink } from "@/types";
 
 const download: AppLink[] = [
   {

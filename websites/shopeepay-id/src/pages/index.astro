@@ -1,17 +1,16 @@
 ---
 import { Benefit, GetStarted, ImageGallery } from "koji";
 
-import Layout from "../layouts/main.astro";
+import Layout from "@/layouts/main.astro";
 
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
-import HomepageHero from "../components/homepage-hero.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import HomepageHero from "@/components/homepage-hero.astro";
 
-import heroImage from "../assets/hero.jpg";
+import heroImage from "@/assets/hero.jpg";
 
-import benefits from "../configs/benefits";
-import getStarted from "../configs/get-started";
-import hero from "../configs/hero";
-import download from "../configs/download";
+import benefits from "@/configs/benefits";
+import getStarted from "@/configs/get-started";
+import hero from "@/configs/hero";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -20,7 +19,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchan
 ---
 
 <Layout title={t("nav.home")}>
-  <HomepageHero background={heroImage} html={hero.html} download={{ items: download }} />
+  <HomepageHero background={heroImage} html={hero.html} download={hero.download} />
   <div class="container mx-auto">
     <div class="flex justify-center py-20">
       <img src="/spay.svg" alt="Logo SPay" class="w-40" />

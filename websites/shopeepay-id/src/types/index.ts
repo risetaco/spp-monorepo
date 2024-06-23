@@ -1,7 +1,7 @@
-import { ui, defaultLang } from "../i18n/ui";
+import type { LangType } from "@/i18n/type";
 
-type Link<T = keyof (typeof ui)[typeof defaultLang]> = {
-  lang?: T;
+type Link = {
+  lang?: LangType;
   url: string;
   text: string;
   alt?: string;
@@ -16,7 +16,7 @@ type AppLink = Link & {
 };
 
 type Menu = {
-  lang?: keyof (typeof ui)[typeof defaultLang];
+  lang?: LangType;
   title?: string;
   url?: string;
   type?: "link" | "button" | "separator";
@@ -39,7 +39,7 @@ type Footer = {
     marketingLink?: Link;
   };
   links: {
-    lang?: keyof (typeof ui)[typeof defaultLang];
+    lang?: LangType;
     title: string;
     items: FooterLink[];
   }[];

@@ -1,14 +1,17 @@
 ---
 import { Container, Feature, Hero } from "koji";
 
-import Layout from "../layouts/main.astro";
-import Download from "../components/download.astro";
+import Layout from "@/layouts/main.astro";
+import Download from "@/components/download.astro";
 
-import featureHero from "../assets/feature.png";
+import featureHero from "@/assets/feature.png";
+import downloadBackground from "@/assets/download-banner.jpg";
+import qrDownload from "@/assets/qr-download.png";
 
-import featureItems from "../configs/features";
+import featureItems from "@/configs/features";
+import download from "@/configs/download";
 
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -48,5 +51,5 @@ const t = useTranslations(lang);
       rel="noopener noreferrer">Visit our Help Center →</a
     >
   </div>
-  <Download />
+  <Download background={downloadBackground} download={download} qrDownload={qrDownload} />
 </Layout>

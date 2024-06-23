@@ -1,4 +1,4 @@
-import { type Footer } from "../types";
+import { type Footer } from "@/types";
 import download from "./download";
 
 const footer: Footer = {
@@ -65,12 +65,12 @@ const footer: Footer = {
     privacyLink: {
       lang: "footer.privacy",
       text: "Privacy Policy",
-      url: "https://help.shopee.ph/portal/article/133983",
+      url: "/privacy",
     },
     termsLink: {
       lang: "footer.terms",
       text: "Terms of Service",
-      url: "https://help.shopee.ph/portal/article/133984",
+      url: "/terms",
     },
   },
 };

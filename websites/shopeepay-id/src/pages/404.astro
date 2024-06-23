@@ -1,20 +1,28 @@
 ---
-import Layout from "../layouts/main.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+
+import Layout from "@/layouts/main.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
 <Layout>
   <div class="container mx-auto p-12">
     <div class="space-y-8">
-      <div class="space-y-2">
-        <p class="text-4xl font-bold text-center">404 - Page Not Found</p>
-        <p class="text-center">The page you are looking for does not exist.</p>
+      <div class="space-y-4">
+        <p class="text-4xl font-bold text-center">{t("404.title")}</p>
+        <p class="text-center">{t("404.description")}</p>
       </div>
-      <a
-        href="/"
-        class="text-white duration-250 hover:opacity-80 block bg-primary px-8 py-4 rounded-full mx-auto w-64 transition-colors text-center"
-      >
-        Go back to Home
-      </a>
+      <div class="flex justify-center">
+        <a
+          href={translatePath("/")}
+          class="text-white inline-block duration-250 hover:opacity-80 bg-primary px-8 py-4 rounded-full mx-auto min-w-64 w-auto transition-colors text-center"
+        >
+          {t("404.back")}
+        </a>
+      </div>
     </div>
   </div>
 </Layout>

@@ -1,5 +1,31 @@
 ---
-import Home from "../index.astro";
+import { Benefit, GetStarted, ImageGallery } from "koji";
+
+import Layout from "@/layouts/main.astro";
+
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import HomepageHero from "@/components/homepage-hero.astro";
+
+import heroImage from "@/assets/hero.jpg";
+
+import benefits from "@/configs/benefits";
+import getStarted from "@/configs/get-started";
+import hero from "@/configs/id/hero";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchant-partners/*.{jpeg,jpg,png,gif}");
 ---
 
-<Home />
+<Layout title={t("nav.home")}>
+  <HomepageHero background={heroImage} html={hero.html} download={hero.download} />
+  <div class="container mx-auto">
+    <div class="flex justify-center py-20">
+      <img src="/spay.svg" alt="Logo SPay" class="w-40" />
+    </div>
+    <Benefit items={benefits} />
+    <GetStarted items={getStarted} />
+    <ImageGallery title="Merchant Partners" items={images} />
+  </div>
+</Layout>

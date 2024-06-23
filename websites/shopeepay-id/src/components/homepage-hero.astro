@@ -1,13 +1,13 @@
 ---
 import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
-import type { AppLink } from "../types";
+import type { AppLink } from "@/types";
 
 interface Props {
   background: ImageMetadata;
   html: string;
   download?: {
-    lang?: string;
+    text?: string;
     items: AppLink[];
   };
 }
@@ -26,7 +26,7 @@ const { html, download, background } = Astro.props;
     class="md:absolute w-full md:w-2/3 lg:w-1/3 right-0 p-12 bg-primary text-white md:top-1/2 md:transform md:-translate-y-1/2 space-y-4"
   >
     <Fragment set:html={html} />
-    <p>Download the Shopee app now!</p>
+    <p>{download?.text}</p>
     <div class="flex space-x-4">
       {
         download?.items.map((item) => (

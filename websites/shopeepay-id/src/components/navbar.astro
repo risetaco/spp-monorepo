@@ -1,6 +1,6 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
-import { type Menu } from "../types";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
+import { type Menu } from "@/types";
 import NavbarMenu from "./navbar-menu";
 
 interface Props {
@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.replace(`/${lang}`, "").split("/")[1];
+const currentPath = pathname;
 
 const translatedMenu: Menu[] = menu.map((item) => ({
   ...item,
@@ -35,7 +35,7 @@ const translatedMenu: Menu[] = menu.map((item) => ({
             <li
               class:list={[
                 "hover:text-primary cursor-pointer whitespace-nowrap",
-                { "text-primary": currentPath === item.url?.slice(1) },
+                { "text-primary": currentPath === item.url },
                 { "bg-orange-600 rounded-full px-4 py-2 text-white hover:text-white": item.type === "button" },
               ]}
             >

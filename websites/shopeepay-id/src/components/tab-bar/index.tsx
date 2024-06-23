@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
-import { cn } from "../../utils";
+import { cn } from "@/utils";
 
 import { supportsViewTransitions } from "./utils/supportsViewTransitions";
 import "./style.css";
