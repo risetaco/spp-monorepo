@@ -1,0 +1,52 @@
+---
+import { Container, Feature, Hero } from "koji";
+
+import Layout from "../layouts/main.astro";
+import Download from "../components/download.astro";
+
+import featureHero from "../assets/feature.png";
+
+import featureItems from "../configs/features";
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout title={t("nav.features")}>
+  <Hero
+    background={featureHero}
+    text="What Can You Do With ShopeePay"
+    cta={{ url: "https://shopee.ph/m/shopeepay", text: "Get Started" }}
+  />
+  <Container>
+    <Feature items={featureItems} />
+  </Container>
+  <div class="bg-gray-100 p-12 text-center space-y-6">
+    <h1 class="text-4xl font-bold">Safe With ShopeePay</h1>
+    <img src="/safety.svg" alt="Safe" class="mx-auto" />
+    <p class="text-xl font-bold">ShopeePay Philippines, Inc. is regulated by the Bangko Sentral ng Pilipinas</p>
+    <a
+      href="https://www.bsp.gov.ph/"
+      class="text-primary duration-250 hover:opacity-80 block"
+      target="_blank"
+      rel="noopener noreferrer">(https://www.bsp.gov.ph/)</a
+    >
+  </div>
+  <div class="p-12 text-center space-y-8">
+    <h1 class="text-4xl font-bold">Got any questions?</h1>
+    <p class="text-gray-500">
+      Contact our Customer Service at <a href="tel:+0288805200" class="text-primary">(02) 8880 5200</a>, or check out
+      our Help Center (<a href="https://help.shopee.ph" class="text-primary">help.shopee.ph</a>) for answers to
+      frequently asked questions about ShopeePay.
+    </p>
+    <a
+      href="https://help.shopee.ph/portal/4/category/38-Payments/825-ShopeePay?page=1"
+      class="text-white duration-250 hover:opacity-80 block bg-primary px-8 py-4 rounded-full mx-auto w-64 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer">Visit our Help Center →</a
+    >
+  </div>
+  <Download />
+</Layout>

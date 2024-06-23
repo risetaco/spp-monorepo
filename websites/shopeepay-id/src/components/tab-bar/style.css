@@ -1,0 +1,19 @@
+@keyframes fade-out {
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0 }
+}
+
+::view-transition-group(.item) {
+  animation-duration: 400ms;
+}
+
+::view-transition-new(.item):only-child {
+  animation-name: fade-in;
+}
+
+::view-transition-old(.item):only-child {
+  animation-name: fade-out;
+}

@@ -1,0 +1,19 @@
+---
+import { Container, ImageGallery, Hero } from "koji";
+
+import Layout from "../layouts/main.astro";
+import hero from "../assets/hero.jpg";
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchant-partners/*.{jpeg,jpg,png,gif}");
+---
+
+<Layout>
+  <Hero
+    background={hero}
+    text="Be a ShopeePay Merchant"
+    cta={{ url: "https://shopee.ph/m/shopeepay", text: "Get Started" }}
+  />
+  <Container>
+    <ImageGallery title="Merchant Partners" items={images} />
+  </Container>
+</Layout>

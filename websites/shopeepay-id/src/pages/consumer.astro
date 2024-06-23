@@ -1,0 +1,36 @@
+---
+import { Container, Feature, Hero } from "koji";
+
+import Layout from "../layouts/main.astro";
+import hero from "../assets/customer.jpg";
+import TabBar from "../components/tab-bar";
+import features from "../configs/features";
+---
+
+<Layout>
+  <Hero background={hero} text="Consumer" heightClass="h-[360px] md:h-[480px]" />
+  <Fragment>
+    <TabBar
+      client:visible
+      headerContainerClassName="justify-between sm:justify-center shadow-md bg-gray-100"
+      headerButtonClassName="w-full sm:w-auto py-6 hover:bg-gray-200"
+      header={[
+        { slot: "feature", label: "ShopeePay Features" },
+        { slot: "pay", label: "Pay With ShopeePay" },
+      ]}
+    >
+      <Fragment slot="feature">
+        <Container class="p-4">
+          <h2 class="text-4xl font-bold text-center">ShopeePay Features</h2>
+          <Feature items={features.slice(0, 2)} />
+        </Container>
+      </Fragment>
+      <Fragment slot="pay">
+        <Container class="p-4">
+          <h2 class="text-4xl font-bold text-center">Pay With ShopeePay</h2>
+          <Feature items={features} />
+        </Container>
+      </Fragment>
+    </TabBar>
+  </Fragment>
+</Layout>

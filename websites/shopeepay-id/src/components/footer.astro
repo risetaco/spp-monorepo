@@ -1,0 +1,84 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { type Footer } from "../types";
+import LanguagePicker from "./language-picker.astro";
+
+interface Props {
+  footer: Footer;
+}
+
+const { footer } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<footer class="border-t border-gray-200 py-4">
+  <div class="container mx-auto p-8 space-y-8">
+    <div class="flex justify-between flex-col-reverse md:flex-row">
+      <div class="space-y-8">
+        <img src={footer.logo} alt="logo" class="w-24 hidden md:block" />
+        <div class="space-y-2">
+          <div>{t("footer.follow")}</div>
+          <div class="flex space-x-4">
+            {
+              footer.socials.map((social) => (
+                <a href={social.url} target="_blank" rel="noreferrer">
+                  <img src={social.logo} alt={social.alt ?? social.text} class="w-10" />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        <div class="space-y-2">
+          <div>{t("footer.download")}</div>
+          <div class="flex space-x-4">
+            {
+              footer.download.map((item) => (
+                <a href={item.url} target="_blank" rel="noreferrer">
+                  <img src={item.logo} alt={item.alt ?? item.text} class="h-12 object-contain" />
+                </a>
+              ))
+            }
+          </div>
+          <img src="/footer/shopee-link.png" alt="qr code" class="w-40" />
+        </div>
+      </div>
+      <div>
+        <img src={footer.logo} alt="logo" class="w-24 md:hidden block mt-2 sm:mt-0" />
+        <div class="flex gap-8 flex-col md:flex-row">
+          {
+            footer.links.map((link) => (
+              <div class="space-y-4">
+                <div class="text-gray-500">{link.title}</div>
+                {link.items.map((item) => (
+                  <a
+                    href={item.url}
+                    class="block hover:text-primary transition-colors duration-300"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {item.name}
+                  </a>
+                ))}
+              </div>
+            ))
+          }
+        </div>
+        <div class="space-y-4 mt-4">
+          <div class="text-gray-500">Language</div>
+          <LanguagePicker />
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto border-t text-center text-gray-500 text-sm p-8">
+      <p>{footer.copyright.title}</p>
+      <div>
+        <a href={footer.copyright.privacyLink.url} target="_blank" rel="noreferrer"> {t("footer.privacy")} </a>
+        |
+        <a href={footer.copyright.termsLink.url} target="_blank" rel="noreferrer">{t("footer.terms")} </a>
+      </div>
+    </div>
+  </div>
+</footer>
