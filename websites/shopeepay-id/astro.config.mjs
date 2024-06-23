@@ -14,6 +14,9 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  build: {
+    format: "file",
+  },
   i18n: {
     defaultLocale: "en",
     locales: ["en", "fr", "id"],
