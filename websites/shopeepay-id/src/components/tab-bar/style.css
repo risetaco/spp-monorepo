@@ -6,14 +6,14 @@
   from { opacity: 0 }
 }
 
-::view-transition-group(.item) {
-  animation-duration: 400ms;
+::view-transition-group(.tab-bar) {
+  animation-duration: 300ms;
 }
 
-::view-transition-new(.item):only-child {
+::view-transition-new(.tab-bar):only-child {
   animation-name: fade-in;
 }
 
-::view-transition-old(.item):only-child {
+::view-transition-old(.tab-bar):only-child {
   animation-name: fade-out;
 }

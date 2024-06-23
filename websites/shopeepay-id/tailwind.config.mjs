@@ -13,18 +13,26 @@ export default {
         primary: "#ee4d2d",
       },
       keyframes: {
-        slideIn: {
+        "slide-in": {
           "0%": { opacity: 0, transform: "translateX(100%)" },
           "100%": { opacity: 1, transform: "translateX(0)" },
         },
-        slideOut: {
+        "slide-out": {
           "0%": { opacity: 1, transform: "translateX(0)" },
           "100%": { opacity: 0, transform: "translateX(100%)" },
         },
+        "fade-in": {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        "fade-out": {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
       },
       animation: {
-        slideIn: "slideIn .25s ease-in-out forwards 0s",
-        slideOut: "slideOut .25s ease-in-out forwards 0s",
+        "slide-in": "slide-in .25s ease-in-out forwards 0s",
+        "slide-out": "slide-out .25s ease-in-out forwards 0s",
       },
     },
   },

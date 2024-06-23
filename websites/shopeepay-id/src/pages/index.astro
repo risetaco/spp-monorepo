@@ -1,21 +1,24 @@
 ---
-import { Benefit, GetStarted, ImageGallery } from "koji";
+import { Benefit, Container, GetStarted, ImageGallery } from "koji";
 
 import Layout from "@/layouts/main.astro";
 
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import HomepageHero from "@/components/homepage-hero.astro";
+import Swiper from "@/components/swiper/Swiper";
 
 import heroImage from "@/assets/hero.jpg";
+import feafureHero from "@/assets/feature.png";
 
 import benefits from "@/configs/benefits";
 import getStarted from "@/configs/get-started";
 import hero from "@/configs/hero";
+import { Picture } from "astro:assets";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchant-partners/*.{jpeg,jpg,png,gif}");
+const merchants = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchant-partners/*.{jpeg,jpg,png,gif}");
 ---
 
 <Layout title={t("nav.home")}>
@@ -26,6 +29,34 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/merchan
     </div>
     <Benefit items={benefits} />
     <GetStarted items={getStarted} />
-    <ImageGallery title="Merchant Partners" items={images} />
+    <ImageGallery title="Merchant Partners" items={merchants} />
+    <Container class="p-48">
+      <Swiper client:load>
+        <Fragment slot={0}>
+          <div class="w-full">
+            <div>Zeroo</div>
+            <Picture src={heroImage} alt="Logo SPay" draggable="false" />
+          </div>
+        </Fragment>
+        <Fragment slot={1}>
+          <div class="w-full">
+            <div>Onee</div>
+            <Picture src={feafureHero} alt="Logo SPay" draggable="false" />
+          </div>
+        </Fragment>
+        <Fragment slot={2}>
+          <div class="w-full">
+            <div>Twoo</div>
+            <Picture src={heroImage} alt="Logo SPay" draggable="false" />
+          </div>
+        </Fragment>
+        <Fragment slot={3}>
+          <div class="w-full">
+            <div>Three</div>
+            <Picture src={feafureHero} alt="Logo SPay" draggable="false" />
+          </div>
+        </Fragment>
+      </Swiper>
+    </Container>
   </div>
 </Layout>

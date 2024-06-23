@@ -104,7 +104,7 @@ const NavbarMenu = ({ menus }: NavbarMenuProps) => {
           <nav
             className={cn(
               "fixed top-16 right-0 h-full w-80 bg-white shadow-md",
-              isOpen ? "block animate-slideIn" : "block animate-slideOut",
+              isOpen ? "block animate-slide-in" : "block animate-slide-out",
             )}
           >
             <ul className="p-4">

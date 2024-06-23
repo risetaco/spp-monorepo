@@ -8,7 +8,7 @@ import "./style.css";
 type TabKey = string | number;
 
 type TabBarProps = {
-  header: { slot: string; label: string }[];
+  header: { slot: TabKey; label: string }[];
   defaultActiveTab?: TabKey;
   fullWidth?: boolean;
   center?: boolean;
@@ -92,7 +92,7 @@ const TabBar = (props: TabBarProps) => {
           </button>
         ))}
       </div>
-      <div style={{ viewTransitionName: "item" }}>{activeTab}</div>
+      <div style={{ viewTransitionName: "tab-bar" }}>{activeTab}</div>
     </div>
   );
 };

@@ -1,0 +1,35 @@
+@keyframes slide-left {
+  0% {
+    /* transform: translateX(0); */
+    opacity: 1;
+  }
+
+  100% {
+    /* transform: translateX(-100%); */
+    opacity: 0;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    /* transform: translateX(-100%); */
+    opacity: 0;
+  }
+
+  100% {
+    /* transform: translateX(0); */
+    opacity: 1;
+  }
+}
+
+::view-transition-group(.swiper) {
+  animation-duration: 1ms;
+}
+
+::view-transition-new(.swiper):only-child {
+  animation: slide-right ease-in-out;
+}
+
+::view-transition-old(.swiper):only-child {
+  animation: slide-left ease-in-out;
+}
