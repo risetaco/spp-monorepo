@@ -13,7 +13,7 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname;
+const currentPath = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
 
 const translatedMenu: Menu[] = menu.map((item) => ({
   ...item,
