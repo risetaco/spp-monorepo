@@ -47,7 +47,7 @@ const NavbarMenu = ({ menus }: NavbarMenuProps) => {
   const { shouldMount } = useTransition(isOpen, 250);
   const pathname = typeof window !== "undefined" ? window.location.pathname : "";
 
-  const currentPath = pathname;
+  const currentPath = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
 
   const handleClick = () => {
     setIsOpen(!isOpen);
