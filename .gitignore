@@ -6,3 +6,5 @@ dist
 storybook-static
 
 .astro
+
+.DS_Store
