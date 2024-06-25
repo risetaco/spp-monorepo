@@ -11806,11 +11806,18 @@ __metadata:
     koji: "workspace:*"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
+    shopeepay-shared: "workspace:^"
     tailwind-merge: "npm:^2.3.0"
     tailwindcss: "npm:^3.4.4"
     tangerine: "workspace:^"
     typescript: "npm:^5.5.2"
     vite: "npm:^5.3.1"
+  languageName: unknown
+  linkType: soft
+
+"shopeepay-shared@workspace:^, shopeepay-shared@workspace:websites/shopeepay-shared":
+  version: 0.0.0-use.local
+  resolution: "shopeepay-shared@workspace:websites/shopeepay-shared"
   languageName: unknown
   linkType: soft
 

@@ -1,0 +1,20 @@
+{
+  "/": {
+    "id_ID": "https://shopeepay.co.id/",
+    "en_SG": "https://shopeepay.sg/",
+    "th_TH": "https://shopeepay.co.th/",
+    "vi_VN": "https://shopeepay.vn/",
+    "ms_MY": "https://shopeepay.com.my/",
+    "en_MY": "https://shopeepay.com.my/en_MY",
+    "en_PH": "https://shopeepay.ph/"
+  },
+  "/features": {
+    "id_ID": "https://shopeepay.co.id/fitur",
+    "en_SG": "https://shopeepay.sg/feature",
+    "th_TH": "https://shopeepay.co.th/feature",
+    "vi_VN": "https://shopeepay.vn/tinh-nang",
+    "ms_MY": "https://shopeepay.com.my/ciri",
+    "en_MY": "https://shopeepay.com.my/en_MY/feature",
+    "en_PH": "https://shopeepay.ph/feature"
+  }
+}

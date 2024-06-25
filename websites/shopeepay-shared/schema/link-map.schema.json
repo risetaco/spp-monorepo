@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LinkMap",
+  "type": "object",
+  "properties": {
+    "/": {
+      "type": "object",
+      "properties": {
+        "id_ID": {
+          "type": "string"
+        },
+        "en_SG": {
+          "type": "string"
+        },
+        "en_MY": {
+          "type": "string"
+        },
+        "ms_MY": {
+          "type": "string"
+        },
+        "en_PH": {
+          "type": "string"
+        },
+        "th_TH": {
+          "type": "string"
+        },
+        "vi_VN": {
+          "type": "string"
+        },
+        "pt_BR": {
+          "type": "string"
+        }
+      }
+    },
+    "/features": {
+      "type": "object",
+      "properties": {
+        "id_ID": {
+          "type": "string"
+        },
+        "en_SG": {
+          "type": "string"
+        },
+        "en_MY": {
+          "type": "string"
+        },
+        "ms_MY": {
+          "type": "string"
+        },
+        "en_PH": {
+          "type": "string"
+        },
+        "th_TH": {
+          "type": "string"
+        },
+        "vi_VN": {
+          "type": "string"
+        },
+        "pt_BR": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": [
+    "/",
+    "/features"
+  ]
+}

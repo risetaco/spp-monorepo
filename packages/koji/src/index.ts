@@ -1,5 +1,7 @@
 export { default as SEO } from "./components/seo/seo.astro";
 export type { Props as SEOProps } from "./components/seo/seo.astro";
+export { generateAlternateLang } from "./components/seo/utils/generateAlternateLang";
+export type * from "./components/seo/utils/generateAlternateLang";
 
 export { default as Feature } from "./components/feature.astro";
 export type { FeatureItem, Props as FeatureProps } from "./components/feature.astro";
