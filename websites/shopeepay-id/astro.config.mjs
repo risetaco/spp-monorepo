@@ -14,8 +14,8 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
-  build: {
-    format: "file",
+  vite: {
+    esbuild: { legalComments: "external" },
   },
   i18n: {
     defaultLocale: "en",

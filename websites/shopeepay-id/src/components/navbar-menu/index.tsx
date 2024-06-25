@@ -3,6 +3,7 @@ import { cn } from "@/utils";
 import type { Menu } from "@/types";
 
 import { useTransition } from "./hooks/useTransition";
+import LanguagePickerAlternate from "../language-picker-alternate";
 
 interface NavbarItemProps {
   activePath: string;
@@ -101,18 +102,23 @@ const NavbarMenu = ({ menus }: NavbarMenuProps) => {
               isOpen ? "bg-opacity-50" : "bg-opacity-0",
             )}
           />
-          <nav
+          <div
             className={cn(
               "fixed top-16 right-0 h-full w-80 bg-white shadow-md",
               isOpen ? "block animate-slide-in" : "block animate-slide-out",
             )}
           >
-            <ul className="p-4">
-              {menus.map((menu, index) => (
-                <NavbarItem activePath={currentPath} menu={menu} key={index} />
-              ))}
-            </ul>
-          </nav>
+            <nav>
+              <ul className="p-4">
+                {menus.map((menu, index) => (
+                  <NavbarItem activePath={currentPath} menu={menu} key={index} />
+                ))}
+              </ul>
+            </nav>
+            <div className="p-4">
+              <LanguagePickerAlternate className="w-full" />
+            </div>
+          </div>
         </>
       )}
     </>

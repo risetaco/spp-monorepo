@@ -1,15 +1,17 @@
 ---
-import { SEO } from "koji";
+import { SEO, generateAlternateLang, type LanguageAlternateMap } from "koji";
 import { ViewTransitions } from "astro:transitions";
 
 import { getLangFromUrl } from "@/i18n/utils";
 
-import Navbar from "@/components/navbar.astro";
+import Navbar from "@/components/navbar";
 import Footer from "@/components/footer.astro";
 
 import footer from "@/configs/footer";
 import menu from "@/configs/menus";
 import seoConfig from "@/configs/seo";
+
+import linkMap from "shopeepay-shared/link-map.json" assert { type: "json" };
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -18,7 +20,10 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const seoProps = { ...seoConfig, title };
+const pathname = new URL(Astro.url).pathname;
+const languageAlternates = generateAlternateLang(pathname, linkMap as unknown as LanguageAlternateMap);
+
+const seoProps = { ...seoConfig, title, languageAlternates };
 ---
 
 <html lang={lang}>
@@ -32,7 +37,7 @@ const seoProps = { ...seoConfig, title };
     <SEO {...seoProps} />
   </head>
   <body>
-    <Navbar menu={menu} />
+    <Navbar menu={menu} client:only="react" />
     <slot />
     <Footer footer={footer} />
   </body>

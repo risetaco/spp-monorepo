@@ -1,28 +1,8 @@
 ---
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
-
 import Layout from "@/layouts/main.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+import NotFound from "@/components/404";
 ---
 
-<Layout>
-  <div class="container mx-auto p-12">
-    <div class="space-y-8">
-      <div class="space-y-4">
-        <p class="text-4xl font-bold text-center">{t("404.title")}</p>
-        <p class="text-center">{t("404.description")}</p>
-      </div>
-      <div class="flex justify-center">
-        <a
-          href={translatePath("/")}
-          class="text-white inline-block duration-250 hover:opacity-80 bg-primary px-8 py-4 rounded-full mx-auto min-w-64 w-auto transition-colors text-center"
-        >
-          {t("404.back")}
-        </a>
-      </div>
-    </div>
-  </div>
+<Layout title="404">
+  <NotFound client:only="react" />
 </Layout>

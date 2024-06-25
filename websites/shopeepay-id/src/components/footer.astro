@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "@/i18n/utils";
 import { type Footer } from "@/types";
-import LanguagePicker from "./language-picker.astro";
+import LanguagePicker from "./language-picker";
 
 import qr from "@/assets/qr-download.png";
 
@@ -70,7 +70,7 @@ const translatePath = useTranslatedPath(lang);
         </div>
         <div class="space-y-4 mt-4">
           <div class="text-gray-500">Language</div>
-          <LanguagePicker />
+          <LanguagePicker client:only="react" />
         </div>
       </div>
     </div>
